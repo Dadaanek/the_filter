@@ -103,14 +103,14 @@ public static class GameData
 	};
 
 	// ENEMY WAWES
-	public static readonly float[] waveOffsets = new float[] { 500f, 5f, 5f, 5f };
+	public static readonly float[] waveOffsets = new float[] { 5f, 5f, 5f, 5f };
 
 	// enemy, time before next enemy (information for each wave)
 	public static readonly Tuple<string, float>[][] WAVE_DATA = new Tuple<string, float>[][]
 	{
 		new Tuple<string, float>[]
 		{
-			new Tuple<string, float>("WindowBig", 0.2f),
+			new Tuple<string, float>("Multiplier", 100f),
 			new Tuple<string, float>("Window", 2f),
 			new Tuple<string, float>("Multiplier", 0.2f)
 		},

@@ -66,6 +66,11 @@ public partial class CaveMan : NPC
 				SetTalking(true);
 				ShowMessage(messages[currentMessageIndex]);
 			}
+			else
+			{
+				SetTalking(true);
+				ShowMessage(messages[messages.Length - 1]);
+			}
 		}
 
 		if (area.GetParent().GetParent() is Enemy)
