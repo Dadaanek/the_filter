@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0t2j7mmhancm"]
+
+[ext_resource type="Script" uid="uid://i2bfky7hv834" path="res://scripts/MainMenu.cs" id="1_ow34m"]
+[ext_resource type="Texture2D" uid="uid://b2vxku6qlrnpn" path="res://assets/main_menu_background.png" id="2_ow34m"]
+[ext_resource type="Texture2D" uid="uid://dhldtnkgjvs5y" path="res://assets/main_menu_label.png" id="3_ow34m"]
+[ext_resource type="Texture2D" uid="uid://bskxvgraoywqw" path="res://assets/main_menu_button_pressed.png" id="4_ow34m"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ow34m")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ow34m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="NewGame" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_ow34m")
+texture_pressed = ExtResource("4_ow34m")
+stretch_mode = 0
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/NewGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Help" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_ow34m")
+texture_pressed = ExtResource("4_ow34m")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Help"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "help
+"
+horizontal_alignment = 1
+vertical_alignment = 1

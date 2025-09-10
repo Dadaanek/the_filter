@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bejvgesjt3dgc"]
+
+[ext_resource type="Texture2D" uid="uid://dheiw3t7rbv4v" path="res://assets/classmate1.png" id="1_8emh0"]
+[ext_resource type="Script" uid="uid://cngf6j3td16ro" path="res://scripts/Classmate.cs" id="1_r7rd4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7rd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8emh0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8emh0"]
+
+[node name="Classmate" type="CharacterBody2D"]
+script = ExtResource("1_r7rd4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r7rd4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_8emh0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = -11.0
+offset_right = 28.0
+offset_bottom = 10.0
+theme_override_font_sizes/normal_font_size = 7
+
+[node name="MessagesTimer" type="Timer" parent="."]

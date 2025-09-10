@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgl5lm3amo35m"]
+
+[ext_resource type="Script" uid="uid://bjhadco7s86db" path="res://scripts/Item.cs" id="1_bx46p"]
+[ext_resource type="Texture2D" uid="uid://clb6sh4uacl1a" path="res://assets/derivace.png" id="2_bx46p"]
+[ext_resource type="Texture2D" uid="uid://bp2m0y0vpv6to" path="res://assets/turret.png" id="3_h0yph"]
+[ext_resource type="Texture2D" uid="uid://cl6mn6sb0y7g5" path="res://assets/penguin1.png" id="4_e0dfn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7l32p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bx46p")
+}],
+"loop": true,
+"name": &"Derivative",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h0yph")
+}],
+"loop": true,
+"name": &"Pencil",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e0dfn")
+}],
+"loop": true,
+"name": &"Penguin",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oyuk7"]
+radius = 3.0
+
+[node name="Item" type="StaticBody2D"]
+collision_layer = 3
+input_pickable = true
+script = ExtResource("1_bx46p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7l32p")
+animation = &"Penguin"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_oyuk7")

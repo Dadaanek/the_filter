@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://bx81u13f46gkm"]
+
+[ext_resource type="Script" uid="uid://dyf1v0a8dap72" path="res://scripts/Player.cs" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://drbyk43ggk0w6" path="res://assets/player_front.png" id="2_3li8b"]
+[ext_resource type="Texture2D" uid="uid://wehpsm8listk" path="res://assets/player_walk_down1.png" id="3_3li8b"]
+[ext_resource type="Texture2D" uid="uid://bgafcs0wk7kd2" path="res://assets/player_walk_horizontal1.png" id="3_70d11"]
+[ext_resource type="Texture2D" uid="uid://s4u30tf6acgy" path="res://assets/player_walk_up1.png" id="3_khinc"]
+[ext_resource type="Texture2D" uid="uid://deuv627550fpg" path="res://assets/player_walk_up2.png" id="4_bruh7"]
+[ext_resource type="Texture2D" uid="uid://dhc4fiem205oa" path="res://assets/player_walk_horizontal2.png" id="4_cw2d6"]
+[ext_resource type="Texture2D" uid="uid://b15hbsr3hwdlk" path="res://assets/player_walk_down2.png" id="4_mdl7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bruh7"]
+size = Vector2(8, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdl7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3li8b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3li8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mdl7e")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_70d11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cw2d6")
+}],
+"loop": true,
+"name": &"walk_horizontal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_khinc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bruh7")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khinc"]
+size = Vector2(8, 12)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_v6fml")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bruh7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mdl7e")
+animation = &"walk_up"
+
+[node name="PlayerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+shape = SubResource("RectangleShape2D_khinc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 4.0
+offset_top = -20.0
+offset_right = 44.0
+offset_bottom = 20.0

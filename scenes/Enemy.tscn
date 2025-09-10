@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bekgbdpjimo3r"]
+
+[ext_resource type="Script" uid="uid://cof5m8q6jhswk" path="res://scripts/Enemy.cs" id="1_55jtl"]
+[ext_resource type="Texture2D" uid="uid://c7ts8e5pgiie4" path="res://assets/multiplier.png" id="2_ft8do"]
+[ext_resource type="Texture2D" uid="uid://cktfsxhw5p2vm" path="res://assets/enemy.png" id="2_mpr68"]
+[ext_resource type="Texture2D" uid="uid://c3e1rra0xglws" path="res://assets/health_background.png" id="3_mpr68"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpr68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ft8do")
+}],
+"loop": true,
+"name": &"Multiplier",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mpr68")
+}],
+"loop": true,
+"name": &"Window",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3idvt"]
+size = Vector2(12, 12)
+
+[node name="Enemy" type="PathFollow2D"]
+position = Vector2(-1, 1)
+rotates = false
+loop = false
+script = ExtResource("1_55jtl")
+
+[node name="EnemyCharacter" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyCharacter"]
+sprite_frames = SubResource("SpriteFrames_mpr68")
+animation = &"Window"
+
+[node name="Area2D" type="Area2D" parent="EnemyCharacter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCharacter/Area2D"]
+shape = SubResource("RectangleShape2D_3idvt")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -9.0
+offset_top = -11.0
+offset_right = 9.0
+offset_bottom = -8.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_mpr68")
+texture_progress = ExtResource("3_mpr68")
+tint_under = Color(0.215902, 0.215902, 0.215902, 1)
+tint_progress = Color(1, 0, 0, 1)

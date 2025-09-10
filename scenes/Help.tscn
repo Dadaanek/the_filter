@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgsj4br23lmf4"]
+
+[ext_resource type="Script" uid="uid://e2nojonyu2dc" path="res://scripts/Help.cs" id="1_acoij"]
+[ext_resource type="Texture2D" uid="uid://c7w6eojc6tkw1" path="res://assets/green.png" id="1_g1n3r"]
+[ext_resource type="Texture2D" uid="uid://dhldtnkgjvs5y" path="res://assets/main_menu_label.png" id="3_1egw1"]
+[ext_resource type="Texture2D" uid="uid://bskxvgraoywqw" path="res://assets/main_menu_button_pressed.png" id="4_j1qxv"]
+
+[node name="Help" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_acoij")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_g1n3r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Back" type="TextureButton" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture_normal = ExtResource("3_1egw1")
+texture_pressed = ExtResource("4_j1qxv")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 2

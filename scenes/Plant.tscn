@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://djpcm7a76deqh"]
+
+[ext_resource type="Script" uid="uid://dci306quyfyx8" path="res://scripts/Plant.cs" id="1_16q7i"]
+[ext_resource type="Texture2D" uid="uid://clb6sh4uacl1a" path="res://assets/derivace.png" id="2_0app1"]
+[ext_resource type="Texture2D" uid="uid://qsbp8h2eud0k" path="res://assets/derivace2.png" id="3_p2drj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68tkh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0app1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p2drj")
+}],
+"loop": true,
+"name": &"Derivative",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_toh6u"]
+
+[node name="Plant" type="StaticBody2D"]
+script = ExtResource("1_16q7i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_68tkh")
+animation = &"Derivative"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_toh6u")
+
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]
