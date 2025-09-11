@@ -272,7 +272,16 @@ static class ItemInteraction
 
 			if (overlapping_areas.Count != 0)
 			{
-				var area = overlapping_areas[0].GetParent();
+				Node area = null;
+				for(int i = 0; i < overlapping_areas.Count; i++)
+				{
+					if (overlapping_areas[i].GetParent() is Plant || overlapping_areas[i].GetParent() is Item)
+					{
+						area = overlapping_areas[i].GetParent();
+						break;
+					}
+				}
+
 				switch (area)
 				{
 					case Plant plant:

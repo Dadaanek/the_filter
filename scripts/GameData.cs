@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public static class GameData
 {
 	// PLAYER
-	public static readonly int playerMovementSpeed = 30;
+	public static readonly int playerMovementSpeed = 100;
 
 	// GROUND
 	public static readonly int PAPER_ID = 2;
@@ -97,8 +97,8 @@ public static class GameData
 	// name, health, speed
 	public static readonly Dictionary<string, Tuple<int, int>> ENEMY_STATS = new Dictionary<string, Tuple<int, int>>
 	{
-		{ "Window", new Tuple<int, int>(10, 70) },
-		{ "Multiplier", new Tuple<int, int>(100, 60) },
+		{ "Window", new Tuple<int, int>(60, 70) },
+		{ "Multiplier", new Tuple<int, int>(70, 60) },
 		{ "WindowBig", new Tuple<int, int>(30, 150) },
 	};
 
@@ -110,7 +110,7 @@ public static class GameData
 	{
 		new Tuple<string, float>[]
 		{
-			new Tuple<string, float>("Multiplier", 100f),
+			new Tuple<string, float>("WindowBig", 0.2f),
 			new Tuple<string, float>("Window", 2f),
 			new Tuple<string, float>("Multiplier", 0.2f)
 		},
