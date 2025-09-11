@@ -19,7 +19,7 @@ Scény jsou řízeny scénou SceneHandler, která postupně vytváří (spuště
         - ...
 
 ## hlavní smyčka
-Složitější výpočty jsou obvykle řešeny diskrétně (interakce hráče s NPCs) nebo pomocí signálů (kolize, vstoupení nepřítele do range věže), zatímco jednodušší operace jsou řešeny ve smyčce Process (aktualizace počtu zabitých oken).
+Složitější výpočty jsou obvykle řešeny pomocí signálů (kolize, vstoupení nepřítele do range věže), zatímco jednodušší operace jsou řešeny ve smyčce Process (aktualizace počtu zabitých oken).
 
 ## potenciální updatey
 Hra je zatím v Alpha verzi, takže není moc záživná ani komplexní. Na druhou stranu je však velká část featur, které by hru výrazně obohatily, z nějaké části již naimplementována (herní ekonomika, inventář, interakce hráče s okolím, logika věží, vylepšení věží, místa vyhrazená různým věžím, interakce NPCs s hráčem...), takže potenciální update hry by se měl zaměřit na přidání nového kontentu nebo reimplementaci některých featur, než na implementaci výrazného množství nových featur.
