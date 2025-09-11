@@ -16,10 +16,10 @@ Zavřením okna, ve kterém hra běží.
 
 ## formát vstupu
 Uživatel se v menu pohybuje za pomoci myši a ve hře za pomoci kláves:
-    * WASD - pohyb,
-    * E - interakce,
-    * TAB - zobrazení inventáře,
-    * ESC - pausa,
+* WASD - pohyb,
+* E - interakce,
+* TAB - zobrazení inventáře,
+* ESC - pausa,
 
 ## potřebné knihovny
 * Godot
