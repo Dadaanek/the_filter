@@ -5,7 +5,12 @@ Hra je napsána v jazyce C# verze 8.0.19 za pomoci herního enginu Godot verze 4
 
 ## architektura projektu
 Data jsou rozdělena do tří složek - assets, scenes a scripts.
-Scény jsou řízeny scénou SceneHandler, která postupně vytváří (spuštění hry) a zabíjí/zneviditelňuje ostatní scény (menu po zapnutí hry). Většina konstant (vlny, dialogy, staty nepřátel...) je uložena ve skriptu scripts/GameData.cs, což umožňuje poměrně snadné vytváření nového obsahu (nové vlny, nepřátelé, změna dialogů, změna statů...). Např. přidání vlny lze udělat pouhým přidáním tuple tupleů do proměnné WAVE_DATA a přidáním floatu do proměnné waveOffsets. GameData.cs slouží jako zcela veřejný skript dostupný odkudkoliv, což pro žádný jiný skript neplatí - ostatní skripty jsou co nejvíce odděleny, aby na sobě byly nezávislé. Zbytek scriptů řídí logiku nodeů, jimž jsou přiřazeny. Obecně má každá duležitá část projektu svůj skript (hráč, SceneHandler, NPC, nepřátelé, jednotlivé postavy, svět - řídí vlny...), který má veřejné jen některé části nutné pro ostatní skripty (např. hráč má metodu GetItemInHand, která vrátí ID předmětu, který právě hráč drží, což může být užitečné např. pro TextureRect zobrazující předmět, který hráč drží v ruce...). Obecně se projekt snaží ve skriptech dodržovat objektově orientované programování.
+Scény jsou řízeny scénou SceneHandler, která postupně vytváří (spuštění hry) a zabíjí/zneviditelňuje ostatní scény (menu po zapnutí hry). 
+## dělení skriptů
+### data (konstanty, dialogy...)
+Většina konstant (vlny, dialogy, staty nepřátel...) je uložena ve skriptu scripts/GameData.cs, což umožňuje poměrně snadné vytváření nového obsahu (nové vlny, nepřátelé, změna dialogů, změna statů...). Např. přidání vlny lze udělat pouhým přidáním tuple tupleů do proměnné WAVE_DATA a přidáním floatu do proměnné waveOffsets. GameData.cs slouží jako zcela veřejný skript dostupný odkudkoliv, což pro žádný jiný skript neplatí - ostatní skripty jsou co nejvíce odděleny, aby na sobě byly nezávislé. 
+### řídící skripty
+Zbytek scriptů řídí logiku nodeů, jimž jsou přiřazeny. Obecně má každá duležitá část projektu svůj skript (hráč, SceneHandler, NPC, nepřátelé, jednotlivé postavy, svět - řídí vlny...), který má veřejné jen některé části nutné pro ostatní skripty (např. hráč má metodu GetItemInHand, která vrátí ID předmětu, který právě hráč drží, což může být užitečné např. pro TextureRect zobrazující předmět, který hráč drží v ruce...). Obecně se projekt snaží ve skriptech dodržovat objektově orientované programování. Většina informací se mezi oddělenými částmi přenáší pomocí signálů - vstup hráče do zóny NPC, ...
 
 ## diagram scén
 - SceneHander
