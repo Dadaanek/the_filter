@@ -1,5 +1,7 @@
 # The Filter
 
+![ingame image](/home/ilove80085/Pictures/Screenshots/ingame.png)
+
 ## popis programu
 Jedná se o hru složenou z několika herních žánrů, primárně tower-defense, rpg a puzzle. Cílem projektu není vytvořit výjimečnou hru z hlediska gameplaye, ale spíše snaha sjednotit různé herní mechaniky do jednoho celku - jedná se tedy spíše o takový pokus než o seriózní projekt. Na druhou stranu budou scripty volně dostupné ke stažení, takže může sloužit jako boilerplate pro uživatele, jež by si chtěli nějak hru dále upravit, pokud obsahuje featury, které by se jim pro jejich projekt hodily.
 
