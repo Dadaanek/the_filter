@@ -25,7 +25,7 @@ Zbytek scriptů řídí logiku nodeů, jimž jsou přiřazeny. Obecně má každ
     - NPCInteraction - řeší interakce hráče s NPCs
 
 - World.cs - řeší primárně spawnování vln nepřátel, detekci konce hry, funkci jednotlivých políček (např. zda lze na dané políčko položit věž), měnu v podobě oken a její využití (zda hráč nasbíral dostatek oken na vylepšení věže)
-* MOŽNÉ VYLEPŠENÍ: odtud by se dala přesunout funkce ohledně měny přesunout do scriptu Player.cs
+    - MOŽNÉ VYLEPŠENÍ: odtud by se dala přesunout funkce ohledně měny přesunout do scriptu Player.cs
 
 - SceneHandler.cs - řeší přepínání mezi různými scénami (menu, hra, finální scéna...) a ukazatele v průběhu hry (předmět, který hráč drží v ruce, zobrazování inventáře...)
 
