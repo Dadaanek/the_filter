@@ -35,6 +35,29 @@ Zbytek scriptů řídí logiku nodeů, jimž jsou přiřazeny. Obecně má každ
 
 - Enemy.cs - pamatuje si důležité informace pro konkrétního nepřítele (typ, životy, rychlost) a umožňuje zvenku dostat ránu, čímž se mu sníží počet životů a pokud je menší nebo roven 0, tak zavolá Destroy(), čímž emituje signál, že byl daný nepřítel zničen. Dále sleduje, kdo se dostal do jeho kolizní area a pokud je nepřítel, kterému tento script patří, typu multiplier a narazí do okna, tak oknu vylepší a zničí se.
 
+### nejdůležitější funkce
+- _Ready() - funkce v téměř každém skriptu, která slouží k inicializaci daného objektu. Je spuštěna jakmile node s tímto skriptem vstoupí do scény. Obvykle se zde inicializují věci jako sprite, ostatní objekty nutné pro fungování tohoto objektu (např. Player si uloží odkaz na Ground a svoji Areu...), např. NPCs si uloží své zprávy v dialogu, inicializace timerů...
+
+- _Process(double delta - čas mezi posledním voláním a předposledním voláním) - funkce, která se vykoná v každém novém frameu. Opět je použita ve spoustě skriptech, které potřebují neustále aktualizovat nějaké informace (labely, CaveMan si sleduje, zda už umřel...).
+
+- _PhysicsProcess(double delta - totožné s deltou u _Process()) - stejné jako _Process(), akorát se funkce vykoná každou danou dobu (např. 60 Hz) namísto každého nového frameu. Sledují se zde hlavně věci související s fyzikou a kolizemi, takže Player si např. sleduje, zda se v jeho Arei nachází NPC a pokud ano, tak zviditelní svůj popup label.
+
+- OnArea2DEntered(Area2D area - area, která začala kolidovat s Areou daného objektu) - tuto funkci mají v zásadě všechny nodey, které mají jako dítě Area2D node. Opět se tím řeší kolize, takže např. NPCs si monitorují, zda vstoupil do jejich Arey2D Player a pokud ano, tak zobrazí svůj popup. Dále se tím řeší např. kolize nepřátel s ostatními nepřáteli a CaveManem. Věže si tímto přidávají do svého seznamu blízkých nepřátel všechny nepřátele, kteří do jejich Arey2D vstoupí.
+
+- OnArea2DExited(Area2D area - area, která přestala -||-) - stejné jako OnArea2DEntered, akorát se vykoná, jakmile nějaký node s Areou2D opustil jejich Area2D. NPCs tedy zneviditelní svůj popup a např. věže si nepřítele, který opustil jejich areu, vymažou ze svého seznamu blízkých nepřátel.
+
+- _Input(InputEvent @event - objekt uchovávající informace o daném eventu) - tato funkce řeší interakce a ovládání. Player tedy tímto sleduje, co hráč mačká a pokud se jedná např. o nějakou z kláves WASD, tak se pokusí pohnout v daném směru. Ostatní skripty např. při zmáčknutí tlačítka pro interakci ověří, zda se nachází hráč v jejich Aree2D a pokud ano, tak ví, že se hráč pokusil interagovat s němi a popř. interakci provedou.
+
+- OnTimerTimeout() - funkce se vykonává, jakmile dojde k uběhnutí nějakého timeru daného skritpu. Takto se např. řídí vlny (rozestupy mezi nepřáteli v dané vlně a rozestupy mezi jednotlivými vlnami).
+
+- TakeHit(int damage - kolik poškození má daný nepřítel dostat) - tato funkce aktualizuje životy nepřítele a popř. jej vymaže funkcí Destroy()
+
+- SelectEnemy() - funkce vracející nepřítele, na kterého se nyní věž zaměřuje. Proces výběru byl již popsán výše.
+
+- Fire() - funkce spuštěna, když může věž vystřelit na nějakého nepřítele (kdy je řízeno timerem). Pomocí SelectEnemy() vybere nepřítele a na něm použije funkci TakeHit(). Rozlišuje různé nepřátele dle typu věže a také poškození je určeno typem věže.
+
+- SpawnEnemies(Tuple<string, float>[] waveData - informace o vlně, kterou má vytvořit) - vytvoří jednu vlnu. Dostane informace o nepřátelích a rozestupech mezi nimi v parametru waveData a pomocí informací ze skriptu GameData.cs si zjistí veškeré informace nutné pro vytvoření daného objektu / scény (životy, rychlost). Pro rozestupy používá timer.
+
 ## diagram scén
 - SceneHander
     - Menu
