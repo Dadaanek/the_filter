@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public static class GameData
 {
 	// PLAYER
-	public static readonly int playerMovementSpeed = 100;
+	public static readonly int playerMovementSpeed = 30;
 
 	// GROUND
 	public static readonly int PAPER_ID = 2;

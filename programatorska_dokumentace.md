@@ -6,6 +6,10 @@ Hra je napsána v jazyce C# verze 8.0.19 za pomoci herního enginu Godot verze 4
 ## architektura projektu
 Data jsou rozdělena do tří složek - assets, scenes a scripts.
 Scény jsou řízeny scénou SceneHandler, která postupně vytváří (spuštění hry) a zabíjí/zneviditelňuje ostatní scény (menu po zapnutí hry). 
+
+## základní algoritmy
+- výběr nepřítele věží - věž si postupně přidává nepřátele, kteří vstoupili do její arey. Jakmile je potřeba vyhodnotit, na kterého nepřítele se nyní soustředí, podívá se na progress každého nepřítele na path2D, po kterém se nepřátelé pohybují, a na toho s maximálním progressem se zaměří.
+
 ## dělení skriptů
 ### data (konstanty, dialogy...)
 Většina konstant (vlny, dialogy, staty nepřátel...) je uložena ve skriptu scripts/GameData.cs, což umožňuje poměrně snadné vytváření nového obsahu (nové vlny, nepřátelé, změna dialogů, změna statů...). 
