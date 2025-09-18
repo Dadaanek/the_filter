@@ -8,7 +8,7 @@ Data jsou rozdělena do tří složek - assets, scenes a scripts.
 Scény jsou řízeny scénou SceneHandler, která postupně vytváří (spuštění hry) a zabíjí/zneviditelňuje ostatní scény (menu po zapnutí hry). 
 
 ## základní algoritmy
-- výběr nepřítele věží - věž si postupně přidává nepřátele, kteří vstoupili do její arey. Jakmile je potřeba vyhodnotit, na kterého nepřítele se nyní soustředí, podívá se na progress každého nepřítele na path2D, po kterém se nepřátelé pohybují, a na toho s maximálním progressem se zaměří.
+- výběr nepřítele věží - věž si postupně přidává nepřátele, kteří vstoupili do její arey. Jakmile je potřeba vyhodnotit, na kterého nepřítele se nyní soustředí, podívá se na progress každého nepřítele na path2D, po kterém se nepřátelé pohybují, a na toho s maximálním progressem se zaměří (je nutno dodat, že každá věž si ukládá jen ty nepřátele, na které může útočit, což je uloženo ve skriptu GameData.cs).
 
 ## dělení skriptů
 ### data (konstanty, dialogy...)
